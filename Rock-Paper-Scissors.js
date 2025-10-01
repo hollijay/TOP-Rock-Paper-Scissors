@@ -1,11 +1,11 @@
 let humanScore = 0
 let computerScore = 0
 
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+for(i=0; i<5; i++){
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+}
 
 function getComputerChoice( ) {
    compChoice = Math.floor(Math.random() * 3)
@@ -55,12 +55,13 @@ function playRound(humanChoice, computerChoice) {
     ) {
         console.log ("You win " + humanChoice + " beats " + computerChoice)
         humanScore++
+        console.log ("the score is " + humanScore + " for human and " + computerScore + " for computer")
     }
 
     else { 
         console.log ("You lose " + computerChoice + " beats " +  humanChoice)
         computerScore++
+        console.log ("the score is " + humanScore + " for human and " + computerScore + " for computer")
     }
-
 
 }
