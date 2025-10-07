@@ -2,19 +2,22 @@
 let humanScore = 0
 let computerScore = 0
 
+
+const messageContainer=document.getElementById("messages")
+
 //get buttons and add event listeners
-rockButton = document.getElementById("rock")
+const rockButton = document.getElementById("rock")
 rockButton.addEventListener("click", () =>{
     playRound("rock")
 })
 
-paperButton = document.getElementById("paper")
+const paperButton = document.getElementById("paper")
 paperButton.addEventListener("click", () =>{
     playRound("paper")
 })
 
-scissorButton = doocument.getElementById("scissors")
-scissorButton.addEventLIstener("click", ( )=>{
+const scissorButton = document.getElementById("scissors")
+scissorButton.addEventListener("click", ( )=>{
     playRound("scissors")
 })
 
@@ -54,11 +57,12 @@ function getHumanChoice( ) {
 }
 
 function playRound(humanChoice) {
+    
 
-    computerChoice = getcomputerChoice()
+    computerChoice = getComputerChoice()
 
     if (humanChoice === computerChoice){
-        console.log("It's a draw nobody wins")
+        messageContainer.textContent = "it's a draw nobody wins"
     }
 
     else if (
@@ -66,15 +70,27 @@ function playRound(humanChoice) {
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log ("You win " + humanChoice + " beats " + computerChoice)
+        messageContainer.textContent = ("You win " + humanChoice + " beats " + computerChoice)
         humanScore++
-        console.log ("the score is " + humanScore + " for human and " + computerScore + " for computer")
+        messageContainer.textContent = ("the score is " + humanScore + " for human and " + computerScore + " for computer")
     }
 
     else { 
-        console.log ("You lose " + computerChoice + " beats " +  humanChoice)
+        messageContainer.textContent = ("You lose " + computerChoice + " beats " +  humanChoice)
         computerScore++
-        console.log ("the score is " + humanScore + " for human and " + computerScore + " for computer")
+        messageContainer.textContent = ("the score is " + humanScore + " for human and " + computerScore + " for computer")
     }
+    
+    if (humanScore == 5){
+        messageContainer.textContent = ("Yay you won")
+        humanScore = 0
+        computerScore = 0
+    }
+    else if (computerScore ==5){
+        messageContainer.textContent = ("Sorry the computer won")
+        computerScore = 0 
+        humanScore = 0
+    }
+
 
 }
