@@ -1,11 +1,22 @@
+// intialize scores
 let humanScore = 0
 let computerScore = 0
 
-for(i=0; i<5; i++){
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-}
+//get buttons and add event listeners
+rockButton = document.getElementById("rock")
+rockButton.addEventListener("click", () =>{
+    playRound("rock")
+})
+
+paperButton = document.getElementById("paper")
+paperButton.addEventListener("click", () =>{
+    playRound("paper")
+})
+
+scissorButton = doocument.getElementById("scissors")
+scissorButton.addEventLIstener("click", ( )=>{
+    playRound("scissors")
+})
 
 function getComputerChoice( ) {
    compChoice = Math.floor(Math.random() * 3)
@@ -42,7 +53,9 @@ function getHumanChoice( ) {
 
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+
+    computerChoice = getcomputerChoice()
 
     if (humanChoice === computerChoice){
         console.log("It's a draw nobody wins")
